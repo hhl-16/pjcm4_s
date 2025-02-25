@@ -1,0 +1,11 @@
+[Unit]
+Description=GPS Service
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /home/hkn/pjcm4/ws/gps/v1_2.py
+Restart=always
+User=hkn
+
+[Install]
+WantedBy=multi-user.target
