@@ -1,0 +1,14 @@
+[Unit]
+Description=MJPG Streamer for Camera 1
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/bash -c 'cd /home/hkn/pjcm4/camera/mjpg-streamer/mjpg-streamer-experimental && sudo ./mjpg_streamer -i "./input_uvc.so -d /dev/video2 -r 640x480 -f 20" -o "./output_http.so -w ./www -p 1235"'
+WorkingDirectory=/home/hkn/pjcm4/camera/mjpg-streamer/mjpg-streamer-experimental
+Restart=always
+RestartSec=10s
+User=root
+
+[Install]
+WantedBy=multi-user.target
