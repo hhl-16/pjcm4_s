@@ -1,0 +1,14 @@
+[Unit]
+Description=Bluetooth Receiver and WebSocket Sender
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+ExecStart=/usr/bin/python3 /home/hkn/pjcm4/ws/ws/v1_4/recv_bt_send_ws.py
+WorkingDirectory=/home/hkn/pjcm4/ws/ws/v1_4/
+Restart=always
+RestartSec=10s
+User=hkn
+
+[Install]
+WantedBy=multi-user.target
